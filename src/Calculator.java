@@ -2,58 +2,101 @@ import java.util.Vector;
 
 public class Calculator {
 
+    // Initialising the vector size
+
+    public int size_of_vectors = 5;
+
+    // Calling the first method to set the vector size
+
+    //public void setSize_of_vectors(int size_of_vectors){
+    //    this.size_of_vectors = size_of_vectors;
+    //}
+
+    //public int getSize_of_vectors(){
+    //    return this.size_of_vectors;
+    //}
 
     // Initialising the vectors
 
-    private Vector<Double> v1 = new Vector <>();
-    private Vector<Double> v2 = new Vector <>();
+    private double v1[] = new double[size_of_vectors];
+    private double v2[] = new double[size_of_vectors];
+
+    private double addition_vector[] = new double[size_of_vectors];
+    private double subtraction_vector[] = new double[size_of_vectors];
+
+    private double temp[] = new double[size_of_vectors];
+
+
+    //########################### METHODS
 
     // Method for setting the vectors
 
-    public void setV1(Vector<Double> v1){
+    public void setV1(double[] v1){
         this.v1 = v1;
     }
 
-    public void setV2(Vector<Double> v2){
+    public void setV2(double[] v2){
         this.v2 = v2;
     }
-
-    // Initialising new vectors for different vector operations
-    // New variable for the size of the vectors
-
-    private int size_of_vectors = v1.size();
-    private Vector<Double> addition_vector = new Vector <>(size_of_vectors);
-    private Vector<Double> temp = new Vector <>(size_of_vectors);
 
 
     // Method for Addition
 
-    public void setAddition_vector(int size_of_vectors, Vector<Double> temp, Vector<Double> v1, Vector<Double> v2) {
+    public void setAddition_vector(int size_of_vectors, double[] temp, double[] v1, double[] v2) {
 
         for(int i = 0; i < size_of_vectors; i++){
-            temp.set(i, v1.get(i) + v2.get(i));
+            temp[i] =  v1[i] + v2[i];
         }
 
         this.addition_vector = temp;
     }
 
 
+    // Method for Subtraction
 
-    // Getting the results
+    public void setSubtraction_vector(int size_of_vectors, double[] temp, double[] v1, double[] v2) {
 
-    public Vector<Double> getV1(){
+        for(int i = 0; i < size_of_vectors; i++){
+            temp[i] =  v1[i] - v2[i];
+        }
+
+        this.subtraction_vector = temp;
+    }
+
+
+    //########################### GETTING THE RESULTS
+
+    // Getting v1
+
+    public double[] getV1() {
         return this.v1;
     }
 
-    public Vector<Double> getV2(){
+
+    // Getting v2
+
+    public double[] getV2(){
         return this.v2;
     }
 
-    public Vector<Double> getAddition_vector(){
+
+    // Getting the addition vector
+
+    public double[] getAddition_vector(){
 
         setAddition_vector(size_of_vectors, temp, v1, v2);
 
         return this.addition_vector;
+    }
+
+
+    // Getting the subtraction vector
+
+    public double[] getSubtraction_vector(){
+
+        setSubtraction_vector(size_of_vectors, temp, v1, v2);
+
+        return this.subtraction_vector;
     }
 
 }

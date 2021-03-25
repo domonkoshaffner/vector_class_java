@@ -1,9 +1,10 @@
-import java.util.Vector;
 import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        //######## Creating the vectors
 
         // Setting the length of the vectors
 
@@ -11,8 +12,8 @@ public class Main {
 
         // Creating two vectors
 
-        Vector<Double> v1 = new Vector <>();
-        Vector<Double> v2 = new Vector <>();
+        double v1[] = new double[vec_len];
+        double v2[] = new double[vec_len];
 
         // Filling up the vectors with 100 random numbers
         // Creating two variables for storing the random values
@@ -31,23 +32,63 @@ public class Main {
 
             // Filling up the vectors
 
-            v1.add(rand_numb1);
-            v2.add(rand_numb2);
+            v1[i] = rand_numb1;
+            v2[i] = rand_numb2;
         }
+
+
+        //######## Calling the methods
 
         // Creating new vector space
 
         Calculator calculator = new Calculator();
+
+        // Setting the vector size
+
+        //calculator.setSize_of_vectors(vec_len);
 
         // Setting the vectors
 
         calculator.setV1(v1);
         calculator.setV2(v2);
 
-        // Printing the results
 
-        System.out.printf("The first vector is " + calculator.getV1() + "\n");
-        System.out.printf("The second vector is " + calculator.getV2() + "\n");
-        System.out.printf("The addition is  " + calculator.getAddition_vector() + "\n");
+        //######## Printing the results
+
+
+        // Printing the first vector
+
+        System.out.printf("The first vector: [" + calculator.getV1()[0]);
+        for(int i = 1; i < vec_len; i++){
+            System.out.printf(", " + calculator.getV1()[i]);
+        }
+        System.out.printf("]\n");
+
+
+        // Printing the second vector
+
+        System.out.printf("The second vector: [" + calculator.getV2()[0]);
+        for(int i = 1; i < vec_len; i++){
+            System.out.printf(", " + calculator.getV2()[i]);
+        }
+        System.out.printf("]\n");
+
+
+        // Printing the addition vector
+
+        System.out.printf("The addition vector: [" + calculator.getAddition_vector()[0]);
+        for(int i = 1; i < vec_len; i++){
+            System.out.printf(", " + calculator.getAddition_vector()[i]);
+        }
+        System.out.printf("]\n");
+
+
+        // Printing the subtraction vector
+
+        System.out.printf("The subtraction vector: [" + calculator.getSubtraction_vector()[0]);
+        for(int i = 1; i < vec_len; i++){
+            System.out.printf(", " + calculator.getSubtraction_vector()[i]);
+        }
+        System.out.printf("]\n");
     }
 }
