@@ -29,7 +29,6 @@ public class Matrix_gen_print {
                 matrix[i][j] = rand_numb1;
             }
         }
-
         return matrix;
     }
 
@@ -50,5 +49,20 @@ public class Matrix_gen_print {
         }
     }
 
+
+    // Rounding the matrix to arbitrary decimals
+
+    public static double[][] round_matrix(double[][] matrix, int places, int rows, int columns) {
+
+        double scale = Math.pow(10, places);
+        double[][] results_matrix = new double[rows][columns];
+
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < columns; j ++) {
+                results_matrix[i][j] = Math.round(matrix[i][j] * scale) / scale;
+            }
+        }
+        return results_matrix;
+    }
 
 }
