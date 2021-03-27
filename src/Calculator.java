@@ -25,6 +25,7 @@ public class Calculator {
     private double subtraction_vector[] = new double[size_of_vectors];
     private double comp_multiplication[] = new double[size_of_vectors];
     private double comp_division[] = new double[size_of_vectors];
+    private double dot_product;
 
     private double temp[] = new double[size_of_vectors];
 
@@ -76,15 +77,29 @@ public class Calculator {
         this.comp_multiplication = temp;
     }
 
-    // Method for component-wise Divisio
+    // Method for component-wise Division
 
     public void setComp_division(double[] temp, double[] v1, double[] v2) {
 
         for(int i = 0; i < v1.length; i++){
+
             temp[i] = v1[i] / v2[i];
         }
 
         this.comp_division = temp;
+    }
+
+    // Method for Dot-product
+
+    public void setDot_product(double[] v1, double[] v2) {
+
+        double temp_dot_prod = 0.0;
+
+        for(int i = 0; i < v1.length; i++){
+            temp_dot_prod += v1[i] * v2[i];
+        }
+
+        this.dot_product = temp_dot_prod;
     }
 
 
@@ -141,5 +156,15 @@ public class Calculator {
         setComp_division(temp, v1, v2);
 
         return this.comp_division;
+    }
+
+
+    // Getting the dot product result
+
+    public double getDot_product(){
+
+        setDot_product(v1, v2);
+
+        return this.dot_product;
     }
 }
