@@ -2,16 +2,16 @@ import java.util.Random;
 
 public class Vector_gen_print {
 
-    // Generating the vector
+    // Generating random vector
 
     public static double[] vector_generator(int vec_len) {
 
-        // Creating two vectors
+        // Creating a vector
 
         double vector[] = new double[vec_len];
 
-        // Filling up the vectors with 100 random numbers
-        // Creating two variables for storing the random values
+        // Filling up the vector with random numbers
+        // Creating a variable for storing the random values
 
         double rand_numb1;
 
@@ -30,6 +30,7 @@ public class Vector_gen_print {
 
         return vector;
     }
+
 
 
     // Printing the vector

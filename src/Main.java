@@ -9,14 +9,19 @@ public class Main {
         // Starting the clock
         double time_start = System.nanoTime();
 
-        //######## Creating the vectors
+        //######## Generating the arrays
 
-        // Setting the length of the vectors
+        // Setting the sizes of arrays
         int vec_len = 5;
+        int matrix_rows = 5;
+        int matrix_columns = 5;
 
         // Creating two vectors
         double v1[] = Vector_gen_print.vector_generator(vec_len);
         double v2[] = Vector_gen_print.vector_generator(vec_len);
+
+        // Generating random matrix
+        double m1[][] = Matrix_gen_print.matrix_generator(matrix_rows, matrix_columns);
 
 
         //######## Calling the methods
@@ -47,7 +52,13 @@ public class Main {
         Vector_gen_print.vector_print("The component-wise multiplication vector:", Vector_gen_print.round_vector(calculator.getComp_multiplication(), decimal_to_round));
         Vector_gen_print.vector_print("The component-wise division vector:", Vector_gen_print.round_vector(calculator.getComp_division(), decimal_to_round));
 
-        System.out.printf("The dot product: " + Vector_gen_print.round_scalar(calculator.getDot_product(), decimal_to_round) + "\n");
+        System.out.printf("The dot product: " + Vector_gen_print.round_scalar(calculator.getDot_product(), decimal_to_round) + "\n\n");
+
+        // Printing the result matrices
+
+        Matrix_gen_print.matrix_print("The original m1 matrix: ", m1, matrix_rows, matrix_columns);
+
+
 
         // Stopping the clock
         double time_end = System.nanoTime();
