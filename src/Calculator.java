@@ -23,6 +23,8 @@ public class Calculator {
 
     private double addition_vector[] = new double[size_of_vectors];
     private double subtraction_vector[] = new double[size_of_vectors];
+    private double comp_multiplication[] = new double[size_of_vectors];
+    private double comp_division[] = new double[size_of_vectors];
 
     private double temp[] = new double[size_of_vectors];
 
@@ -42,10 +44,10 @@ public class Calculator {
 
     // Method for Addition
 
-    public void setAddition_vector(int size_of_vectors, double[] temp, double[] v1, double[] v2) {
+    public void setAddition_vector(double[] temp, double[] v1, double[] v2) {
 
-        for(int i = 0; i < size_of_vectors; i++){
-            temp[i] =  v1[i] + v2[i];
+        for(int i = 0; i < v1.length; i++){
+            temp[i] = v1[i] + v2[i];
         }
 
         this.addition_vector = temp;
@@ -54,13 +56,35 @@ public class Calculator {
 
     // Method for Subtraction
 
-    public void setSubtraction_vector(int size_of_vectors, double[] temp, double[] v1, double[] v2) {
+    public void setSubtraction_vector(double[] temp, double[] v1, double[] v2) {
 
-        for(int i = 0; i < size_of_vectors; i++){
-            temp[i] =  v1[i] - v2[i];
+        for(int i = 0; i < v1.length; i++){
+            temp[i] = v1[i] - v2[i];
         }
 
         this.subtraction_vector = temp;
+    }
+
+    // Method for component-wise Multiplication
+
+    public void setComp_multiplication(double[] temp, double[] v1, double[] v2) {
+
+        for(int i = 0; i < v1.length; i++){
+            temp[i] = v1[i] * v2[i];
+        }
+
+        this.comp_multiplication = temp;
+    }
+
+    // Method for component-wise Divisio
+
+    public void setComp_division(double[] temp, double[] v1, double[] v2) {
+
+        for(int i = 0; i < v1.length; i++){
+            temp[i] = v1[i] / v2[i];
+        }
+
+        this.comp_division = temp;
     }
 
 
@@ -84,7 +108,7 @@ public class Calculator {
 
     public double[] getAddition_vector(){
 
-        setAddition_vector(size_of_vectors, temp, v1, v2);
+        setAddition_vector(temp, v1, v2);
 
         return this.addition_vector;
     }
@@ -94,9 +118,28 @@ public class Calculator {
 
     public double[] getSubtraction_vector(){
 
-        setSubtraction_vector(size_of_vectors, temp, v1, v2);
+        setSubtraction_vector(temp, v1, v2);
 
         return this.subtraction_vector;
     }
 
+
+    // Getting the multiplication vector
+
+    public double[] getComp_multiplication(){
+
+        setComp_multiplication(temp, v1, v2);
+
+        return this.comp_multiplication;
+    }
+
+
+    // Getting the division vector
+
+    public double[] getComp_division(){
+
+        setComp_division(temp, v1, v2);
+
+        return this.comp_division;
+    }
 }

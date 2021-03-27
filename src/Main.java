@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -34,6 +32,7 @@ public class Main {
         Vector_gen_print.vector_print("The second vector:", calculator.getV2());
         Vector_gen_print.vector_print("The addition vector:", calculator.getAddition_vector());
         Vector_gen_print.vector_print("The subtraction vector:", calculator.getSubtraction_vector());
-
+        Vector_gen_print.vector_print("The component-wise multiplication vector:", calculator.getComp_multiplication());
+        Vector_gen_print.vector_print("The component-wise division vector:", calculator.getComp_division());
     }
 }
